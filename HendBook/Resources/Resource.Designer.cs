@@ -988,32 +988,32 @@ namespace HendBook
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0b0044
-			public const int abc_background_cache_hint_selector_material_dark = 2131427396;
-			
 			// aapt resource value: 0x7f0b0045
-			public const int abc_background_cache_hint_selector_material_light = 2131427397;
+			public const int abc_background_cache_hint_selector_material_dark = 2131427397;
 			
 			// aapt resource value: 0x7f0b0046
-			public const int abc_color_highlight_material = 2131427398;
+			public const int abc_background_cache_hint_selector_material_light = 2131427398;
+			
+			// aapt resource value: 0x7f0b0047
+			public const int abc_color_highlight_material = 2131427399;
 			
 			// aapt resource value: 0x7f0b0000
 			public const int abc_input_method_navigation_guard = 2131427328;
 			
-			// aapt resource value: 0x7f0b0047
-			public const int abc_primary_text_disable_only_material_dark = 2131427399;
-			
 			// aapt resource value: 0x7f0b0048
-			public const int abc_primary_text_disable_only_material_light = 2131427400;
+			public const int abc_primary_text_disable_only_material_dark = 2131427400;
 			
 			// aapt resource value: 0x7f0b0049
-			public const int abc_primary_text_material_dark = 2131427401;
+			public const int abc_primary_text_disable_only_material_light = 2131427401;
 			
 			// aapt resource value: 0x7f0b004a
-			public const int abc_primary_text_material_light = 2131427402;
+			public const int abc_primary_text_material_dark = 2131427402;
 			
 			// aapt resource value: 0x7f0b004b
-			public const int abc_search_url_text = 2131427403;
+			public const int abc_primary_text_material_light = 2131427403;
+			
+			// aapt resource value: 0x7f0b004c
+			public const int abc_search_url_text = 2131427404;
 			
 			// aapt resource value: 0x7f0b0001
 			public const int abc_search_url_text_normal = 2131427329;
@@ -1024,11 +1024,11 @@ namespace HendBook
 			// aapt resource value: 0x7f0b0003
 			public const int abc_search_url_text_selected = 2131427331;
 			
-			// aapt resource value: 0x7f0b004c
-			public const int abc_secondary_text_material_dark = 2131427404;
-			
 			// aapt resource value: 0x7f0b004d
-			public const int abc_secondary_text_material_light = 2131427405;
+			public const int abc_secondary_text_material_dark = 2131427405;
+			
+			// aapt resource value: 0x7f0b004e
+			public const int abc_secondary_text_material_light = 2131427406;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int accent_material_dark = 2131427332;
@@ -1216,17 +1216,20 @@ namespace HendBook
 			// aapt resource value: 0x7f0b0037
 			public const int switch_thumb_disabled_material_light = 2131427383;
 			
-			// aapt resource value: 0x7f0b004e
-			public const int switch_thumb_material_dark = 2131427406;
-			
 			// aapt resource value: 0x7f0b004f
-			public const int switch_thumb_material_light = 2131427407;
+			public const int switch_thumb_material_dark = 2131427407;
+			
+			// aapt resource value: 0x7f0b0050
+			public const int switch_thumb_material_light = 2131427408;
 			
 			// aapt resource value: 0x7f0b0038
 			public const int switch_thumb_normal_material_dark = 2131427384;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int switch_thumb_normal_material_light = 2131427385;
+			
+			// aapt resource value: 0x7f0b0044
+			public const int window_background = 2131427396;
 			
 			static Color()
 			{
@@ -1876,8 +1879,8 @@ namespace HendBook
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060079
-			public const int action0 = 2131099769;
+			// aapt resource value: 0x7f06007a
+			public const int action0 = 2131099770;
 			
 			// aapt resource value: 0x7f06005a
 			public const int action_bar = 2131099738;
@@ -1903,8 +1906,8 @@ namespace HendBook
 			// aapt resource value: 0x7f06005b
 			public const int action_context_bar = 2131099739;
 			
-			// aapt resource value: 0x7f06007d
-			public const int action_divider = 2131099773;
+			// aapt resource value: 0x7f06007e
+			public const int action_divider = 2131099774;
 			
 			// aapt resource value: 0x7f060003
 			public const int action_menu_divider = 2131099651;
@@ -1942,8 +1945,8 @@ namespace HendBook
 			// aapt resource value: 0x7f060044
 			public const int buttonPanel = 2131099716;
 			
-			// aapt resource value: 0x7f06007a
-			public const int cancel_action = 2131099770;
+			// aapt resource value: 0x7f06007b
+			public const int cancel_action = 2131099771;
 			
 			// aapt resource value: 0x7f06002b
 			public const int center = 2131099691;
@@ -1957,8 +1960,8 @@ namespace HendBook
 			// aapt resource value: 0x7f060052
 			public const int checkbox = 2131099730;
 			
-			// aapt resource value: 0x7f060080
-			public const int chronometer = 2131099776;
+			// aapt resource value: 0x7f060081
+			public const int chronometer = 2131099777;
 			
 			// aapt resource value: 0x7f060033
 			public const int clip_horizontal = 2131099699;
@@ -2002,14 +2005,17 @@ namespace HendBook
 			// aapt resource value: 0x7f06000e
 			public const int disableHome = 2131099662;
 			
+			// aapt resource value: 0x7f060077
+			public const int drawer_layout = 2131099767;
+			
 			// aapt resource value: 0x7f06005c
 			public const int edit_query = 2131099740;
 			
 			// aapt resource value: 0x7f06001c
 			public const int end = 2131099676;
 			
-			// aapt resource value: 0x7f060085
-			public const int end_padder = 2131099781;
+			// aapt resource value: 0x7f060086
+			public const int end_padder = 2131099782;
 			
 			// aapt resource value: 0x7f060023
 			public const int enterAlways = 2131099683;
@@ -2056,11 +2062,11 @@ namespace HendBook
 			// aapt resource value: 0x7f06003f
 			public const int image = 2131099711;
 			
-			// aapt resource value: 0x7f060078
-			public const int imgViewHeader = 2131099768;
+			// aapt resource value: 0x7f060079
+			public const int imgViewHeader = 2131099769;
 			
-			// aapt resource value: 0x7f060084
-			public const int info = 2131099780;
+			// aapt resource value: 0x7f060085
+			public const int info = 2131099781;
 			
 			// aapt resource value: 0x7f060000
 			public const int item_touch_helper_previous_elevation = 2131099648;
@@ -2068,11 +2074,11 @@ namespace HendBook
 			// aapt resource value: 0x7f06002f
 			public const int left = 2131099695;
 			
-			// aapt resource value: 0x7f06007e
-			public const int line1 = 2131099774;
+			// aapt resource value: 0x7f06007f
+			public const int line1 = 2131099775;
 			
-			// aapt resource value: 0x7f060082
-			public const int line3 = 2131099778;
+			// aapt resource value: 0x7f060083
+			public const int line3 = 2131099779;
 			
 			// aapt resource value: 0x7f06000b
 			public const int listMode = 2131099659;
@@ -2080,8 +2086,8 @@ namespace HendBook
 			// aapt resource value: 0x7f060041
 			public const int list_item = 2131099713;
 			
-			// aapt resource value: 0x7f06007c
-			public const int media_actions = 2131099772;
+			// aapt resource value: 0x7f06007d
+			public const int media_actions = 2131099773;
 			
 			// aapt resource value: 0x7f06001d
 			public const int middle = 2131099677;
@@ -2092,20 +2098,20 @@ namespace HendBook
 			// aapt resource value: 0x7f060016
 			public const int multiply = 2131099670;
 			
+			// aapt resource value: 0x7f06008a
+			public const int nav_discussion = 2131099786;
+			
 			// aapt resource value: 0x7f060089
-			public const int nav_discussion = 2131099785;
-			
-			// aapt resource value: 0x7f060088
-			public const int nav_friends = 2131099784;
-			
-			// aapt resource value: 0x7f060086
-			public const int nav_home = 2131099782;
+			public const int nav_friends = 2131099785;
 			
 			// aapt resource value: 0x7f060087
-			public const int nav_messages = 2131099783;
+			public const int nav_home = 2131099783;
 			
-			// aapt resource value: 0x7f060077
-			public const int nav_view = 2131099767;
+			// aapt resource value: 0x7f060088
+			public const int nav_messages = 2131099784;
+			
+			// aapt resource value: 0x7f060078
+			public const int nav_view = 2131099768;
 			
 			// aapt resource value: 0x7f06006d
 			public const int navigation_header_container = 2131099757;
@@ -2230,8 +2236,8 @@ namespace HendBook
 			// aapt resource value: 0x7f060031
 			public const int start = 2131099697;
 			
-			// aapt resource value: 0x7f06007b
-			public const int status_bar_latest_event_content = 2131099771;
+			// aapt resource value: 0x7f06007c
+			public const int status_bar_latest_event_content = 2131099772;
 			
 			// aapt resource value: 0x7f060065
 			public const int submit_area = 2131099749;
@@ -2242,17 +2248,17 @@ namespace HendBook
 			// aapt resource value: 0x7f060074
 			public const int tabs = 2131099764;
 			
-			// aapt resource value: 0x7f060083
-			public const int text = 2131099779;
+			// aapt resource value: 0x7f060084
+			public const int text = 2131099780;
 			
-			// aapt resource value: 0x7f060081
-			public const int text2 = 2131099777;
+			// aapt resource value: 0x7f060082
+			public const int text2 = 2131099778;
 			
 			// aapt resource value: 0x7f06004d
 			public const int textSpacerNoButtons = 2131099725;
 			
-			// aapt resource value: 0x7f06007f
-			public const int time = 2131099775;
+			// aapt resource value: 0x7f060080
+			public const int time = 2131099776;
 			
 			// aapt resource value: 0x7f060043
 			public const int title = 2131099715;
@@ -2455,43 +2461,46 @@ namespace HendBook
 			public const int Main = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int nav_header = 2130903079;
+			public const int MyFragment = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int notification_media_action = 2130903080;
+			public const int nav_header = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int notification_media_cancel_action = 2130903081;
+			public const int notification_media_action = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int notification_template_big_media = 2130903082;
+			public const int notification_media_cancel_action = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int notification_template_big_media_narrow = 2130903083;
+			public const int notification_template_big_media = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int notification_template_lines = 2130903084;
+			public const int notification_template_big_media_narrow = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int notification_template_media = 2130903085;
+			public const int notification_template_lines = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int notification_template_part_chronometer = 2130903086;
+			public const int notification_template_media = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int notification_template_part_time = 2130903087;
+			public const int notification_template_part_chronometer = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int select_dialog_item_material = 2130903088;
+			public const int notification_template_part_time = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int select_dialog_multichoice_material = 2130903089;
+			public const int select_dialog_item_material = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int select_dialog_singlechoice_material = 2130903090;
+			public const int select_dialog_multichoice_material = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int support_simple_spinner_dropdown_item = 2130903091;
+			public const int select_dialog_singlechoice_material = 2130903091;
+			
+			// aapt resource value: 0x7f030034
+			public const int support_simple_spinner_dropdown_item = 2130903092;
 			
 			static Layout()
 			{
@@ -2593,6 +2602,15 @@ namespace HendBook
 			
 			// aapt resource value: 0x7f070016
 			public const int character_counter_pattern = 2131165206;
+			
+			// aapt resource value: 0x7f07001a
+			public const int checkin = 2131165210;
+			
+			// aapt resource value: 0x7f070019
+			public const int cheese_ipsum = 2131165209;
+			
+			// aapt resource value: 0x7f07001b
+			public const int menu_settings = 2131165211;
 			
 			// aapt resource value: 0x7f070013
 			public const int status_bar_notification_info_overflow = 2131165203;
@@ -2816,6 +2834,9 @@ namespace HendBook
 			
 			// aapt resource value: 0x7f090002
 			public const int Base_Theme_AppCompat_Light_DialogWhenLarge = 2131296258;
+			
+			// aapt resource value: 0x7f090159
+			public const int Base_Theme_DesignDemo = 2131296601;
 			
 			// aapt resource value: 0x7f09009b
 			public const int Base_ThemeOverlay_AppCompat = 2131296411;
@@ -3384,6 +3405,18 @@ namespace HendBook
 			// aapt resource value: 0x7f09014d
 			public const int Theme_Design_NoActionBar = 2131296589;
 			
+			// aapt resource value: 0x7f090157
+			public const int Theme_DesignDemo = 2131296599;
+			
+			// aapt resource value: 0x7f09015b
+			public const int Theme_DesignDemo_AppBarOverlay = 2131296603;
+			
+			// aapt resource value: 0x7f09015c
+			public const int Theme_DesignDemo_PopupOverlay = 2131296604;
+			
+			// aapt resource value: 0x7f090158
+			public const int Theme_DesignDemo2 = 2131296600;
+			
 			// aapt resource value: 0x7f0900f3
 			public const int ThemeOverlay_AppCompat = 2131296499;
 			
@@ -3608,6 +3641,9 @@ namespace HendBook
 			
 			// aapt resource value: 0x7f09013d
 			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131296573;
+			
+			// aapt resource value: 0x7f09015a
+			public const int Widget_CardContent = 2131296602;
 			
 			// aapt resource value: 0x7f09014e
 			public const int Widget_Design_AppBarLayout = 2131296590;
