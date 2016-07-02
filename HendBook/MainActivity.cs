@@ -66,8 +66,25 @@ namespace HendBook
             viewPager.Adapter = adapter;
         }
 
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    mDrawerLayout.OpenDrawer((int)GravityFlags.Left);
+                    return true;
+                default:return base.OnOptionsItemSelected(item);
+            }
+            return base.OnOptionsItemSelected(item);
+
+        }
         private void SetUpDrawerContent(NavigationView navigationVieew)
         {
+            navigationVieew.NavigationItemSelected += (object sender, NavigationView.NavigationItemSelectedEventArgs e) =>
+              {
+                  e.MenuItem.SetChecked(true);
+                  mDrawerLayout.CloseDrawers();
+              };
           
         }
 
