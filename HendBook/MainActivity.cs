@@ -17,6 +17,7 @@ using static Android.Support.V7.Widget.ScrollingTabContainerView;
 using Android.Support.V4.App;
 using System.Collections.Generic;
 using Java.Lang;
+using HendBook.Fragments;
 
 namespace HendBook
 {
@@ -61,8 +62,10 @@ namespace HendBook
         private void SetUpViewPager(ViewPager viewPager)
         {
             TabAdapter adapter = new TabAdapter(SupportFragmentManager);
-         
-          
+            adapter.AddFragment(new Fragment1(), "Fragment 1");
+            adapter.AddFragment(new Fragment2(), "Fragment 2");
+
+            adapter.AddFragment(new Fragment3(), "Fragment 3");
             viewPager.Adapter = adapter;
         }
 
@@ -95,6 +98,7 @@ namespace HendBook
             public TabAdapter(SupportFragmentManager sfm):base(sfm)
             {
                 Fragments = new List<SupportFragment>();
+                FragmentNames = new List<string>();
             }
             public void AddFragment(SupportFragment fragment, string name)
             {

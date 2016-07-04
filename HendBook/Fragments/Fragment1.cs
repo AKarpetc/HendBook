@@ -13,6 +13,7 @@ using Android.Widget;
 using Android.Support.V7.Widget;
 using Android.Graphics;
 using HendBook.Helpers;
+using Android.Content.Res;
 
 namespace HendBook.Fragments
 {
@@ -31,15 +32,15 @@ namespace HendBook.Fragments
             // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
             RecyclerView recyclerView = inflater.Inflate(Resource.Layout.Fragment1, container, false) as RecyclerView;
             SetUpReciclerView(recyclerView);
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            return recyclerView;
         }
 
         private void SetUpReciclerView(RecyclerView recyclerView)
         {
             var values = GetRandomSubList(Helpers.Cheeses.CheeseList,30);
             recyclerView.SetLayoutManager(new LinearLayoutManager(recyclerView.Context));
-            //recyclerView.SetAdapter(new SimpleSringRecyclerViewAdapter(recyclerView.Context,values,Activity.Resources))
-          //  throw new NotImplementedException();
+            recyclerView.SetAdapter(new SimpleStringRecyclerViewAdapter(recyclerView.Context, values, Activity.Resources));
+
         }
         private List<string> GetRandomSubList(List<string> item, int amount)
         {
@@ -52,93 +53,93 @@ namespace HendBook.Fragments
             }
             return list;
         }
-        //public class SimpleStringRecyclerViewAdapter : RecyclerView.Adapter
-        //{
-        //    private readonly TypedValue mTypedValue = new TypedValue();
-        //    private int mBackground;
-        //    private List<string> mValues;
-        //    Resources mResource;
-        //    private Dictionary<int, int> mCalculatedSizes;
+        public class SimpleStringRecyclerViewAdapter : RecyclerView.Adapter
+        {
+            private readonly TypedValue mTypedValue = new TypedValue();
+            private int mBackground;
+            private List<string> mValues;
+            Resources mResource;
+            private Dictionary<int, int> mCalculatedSizes;
 
-        //    public SimpleStringRecyclerViewAdapter(Context context, List<string> items, Resources res)
-        //    {
-        //        context.Theme.ResolveAttribute(Resource.Attribute.selectableItemBackground, mTypedValue, true);
-        //        mBackground = mTypedValue.ResourceId;
-        //        mValues = items;
-        //        mResource = res;
+            public SimpleStringRecyclerViewAdapter(Context context, List<string> items, Resources res)
+            {
+                context.Theme.ResolveAttribute(Resource.Attribute.selectableItemBackground, mTypedValue, true);
+                mBackground = mTypedValue.ResourceId;
+                mValues = items;
+                mResource = res;
 
-        //        mCalculatedSizes = new Dictionary<int, int>();
-        //    }
+                mCalculatedSizes = new Dictionary<int, int>();
+            }
 
-        //    public override int ItemCount
-        //    {
-        //        get
-        //        {
-        //            return mValues.Count;
-        //        }
-        //    }
+            public override int ItemCount
+            {
+                get
+                {
+                    return mValues.Count;
+                }
+            }
 
-        //    public override async void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
-        //    {
-        //        var simpleHolder = holder as SimpleViewHolder;
+            public override async void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
+            {
+                var simpleHolder = holder as SimpleViewHolder;
 
-        //        simpleHolder.mBoundString = mValues[position];
-        //        simpleHolder.mTxtView.Text = mValues[position];
+                simpleHolder.mBoundString = mValues[position];
+                simpleHolder.mTxtView.Text = mValues[position];
 
-        //        int drawableID = Cheeses.RandomCheeseDrawable;
-        //        BitmapFactory.Options options = new BitmapFactory.Options();
+                int drawableID = Cheeses.RandomCheeseDrawable;
+                BitmapFactory.Options options = new BitmapFactory.Options();
 
-        //        if (mCalculatedSizes.ContainsKey(drawableID))
-        //        {
-        //            options.InSampleSize = mCalculatedSizes[drawableID];
-        //        }
+                if (mCalculatedSizes.ContainsKey(drawableID))
+                {
+                    options.InSampleSize = mCalculatedSizes[drawableID];
+                }
 
-        //        else
-        //        {
-        //            options.InJustDecodeBounds = true;
+                else
+                {
+                    options.InJustDecodeBounds = true;
 
-        //            BitmapFactory.DecodeResource(mResource, drawableID, options);
+                    BitmapFactory.DecodeResource(mResource, drawableID, options);
 
-        //            options.InSampleSize = Cheeses.CalculateInSampleSize(options, 100, 100);
-        //            options.InJustDecodeBounds = false;
+                    options.InSampleSize = Cheeses.CalculateInSampleSize(options, 100, 100);
+                    options.InJustDecodeBounds = false;
 
-        //            mCalculatedSizes.Add(drawableID, options.InSampleSize);
-        //        }
+                    mCalculatedSizes.Add(drawableID, options.InSampleSize);
+                }
 
 
-        //        var bitMap = await BitmapFactory.DecodeResourceAsync(mResource, drawableID, options);
+                var bitMap = await BitmapFactory.DecodeResourceAsync(mResource, drawableID, options);
 
-        //        simpleHolder.mImageView.SetImageBitmap(bitMap);
-        //    }
+                simpleHolder.mImageView.SetImageBitmap(bitMap);
+            }
 
-        //    public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
-        //    {
-        //        View view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.List_Item, parent, false);
-        //        view.SetBackgroundResource(mBackground);
+            public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
+            {
+                View view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.List_item, parent, false);
+                view.SetBackgroundResource(mBackground);
 
-        //        return new SimpleViewHolder(view);
-        //    }
-        //}
+                return new SimpleViewHolder(view);
+            }
+        }
 
-        //public class SimpleViewHolder : RecyclerView.ViewHolder
-        //{
-        //    public string mBoundString;
-        //    public readonly View mView;
-        //    public readonly ImageView mImageView;
-        //    public readonly TextView mTxtView;
+        public class SimpleViewHolder : RecyclerView.ViewHolder
+        {
+            public string mBoundString;
+            public readonly View mView;
+            public readonly ImageView mImageView;
+            public readonly TextView mTxtView;
 
-        //    public SimpleViewHolder(View view) : base(view)
-        //    {
-        //        mView = view;
-        //       // mImageView = view.FindViewById<ImageView>(Resource.Id.avatar);
-        //       // mTxtView = view.FindViewById<TextView>(Resource.Id.text1);
-        //    }
+            public SimpleViewHolder(View view) : base(view)
+            {
+                mView = view;
+                 mImageView = view.FindViewById<ImageView>(Resource.Id.avatar);
+                 mTxtView = view.FindViewById<TextView>(Resource.Id.text1);
+            }
 
-        //    public override string ToString()
-        //    {
-        //        return base.ToString() + " '" + mTxtView.Text;
-        //    }
-        //}
-    
-}
+            public override string ToString()
+            {
+                return base.ToString() + " '" + mTxtView.Text;
+            }
+        }
+
+    }
 }
