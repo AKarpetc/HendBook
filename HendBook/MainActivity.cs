@@ -64,8 +64,8 @@ namespace HendBook
             TabAdapter adapter = new TabAdapter(SupportFragmentManager);
             adapter.AddFragment(new Fragment1(), "Fragment 1");
             adapter.AddFragment(new Fragment2(), "Fragment 2");
-
             adapter.AddFragment(new Fragment3(), "Fragment 3");
+          
             viewPager.Adapter = adapter;
         }
 

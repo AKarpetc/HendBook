@@ -1,8 +1,8 @@
-
+using SupportFragment = Android.Support.V4.App.Fragment;
 using Android.App;
 using Android.OS;
 using Android.Views;
-using SupportFragment = Android.Support.V4.App.Fragment;
+
 namespace HendBook.Fragments
 {
     public class Fragment3 : SupportFragment
