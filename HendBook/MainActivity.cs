@@ -78,7 +78,7 @@ namespace HendBook
                     return true;
                 default:return base.OnOptionsItemSelected(item);
             }
-            return base.OnOptionsItemSelected(item);
+            //return base.OnOptionsItemSelected(item);
 
         }
         private void SetUpDrawerContent(NavigationView navigationVieew)
