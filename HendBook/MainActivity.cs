@@ -25,7 +25,8 @@ namespace HendBook
     public class MainActivity : AppCompatActivity
     {
         private DrawerLayout mDrawerLayout;
-
+        ViewPager viewPager;
+        TabLayout tabs;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -43,9 +44,9 @@ namespace HendBook
             {
                 SetUpDrawerContent(navigationVieew);
             }
-            TabLayout tabs = FindViewById<TabLayout>(Resource.Id.tabs);
-            ViewPager viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
-            SetUpViewPager(viewPager);
+            tabs = FindViewById<TabLayout>(Resource.Id.tabs);
+            viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
+            SetUpViewPager();
             tabs.SetupWithViewPager(viewPager);
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += (o, e) =>
@@ -58,34 +59,76 @@ namespace HendBook
                 }).Show();
             };
         }
-
-        private void SetUpViewPager(ViewPager viewPager)
+        TabAdapter adapter;// = new TabAdapter(SupportFragmentManager);
+        private void SetUpViewPager()
         {
-            TabAdapter adapter = new TabAdapter(SupportFragmentManager);
+            adapter = new TabAdapter(SupportFragmentManager);
             adapter.AddFragment(new Fragment1(), "Fragment 1");
             adapter.AddFragment(new Fragment2(), "Fragment 2");
-
-            adapter.AddFragment(new Fragment3(), "Fragment 3");
+           // adapter.AddFragment(new Fragment3(), "Fragment 3");
+          
             viewPager.Adapter = adapter;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
+           
+
             switch (item.ItemId)
             {
+           
                 case Android.Resource.Id.Home:
                     mDrawerLayout.OpenDrawer((int)GravityFlags.Left);
                     return true;
+                //case Android.Resource.Id.d:
+                //    {
+                //        mDrawerLayout.OpenDrawer((int)GravityFlags.Left);
+
+                //        Toast.MakeText(ApplicationContext, "Сообщение", ToastLength.Short).Show();
+                //        return true;
+                //    }
                 default:return base.OnOptionsItemSelected(item);
             }
-            //return base.OnOptionsItemSelected(item);
+   
 
         }
         private void SetUpDrawerContent(NavigationView navigationVieew)
         {
             navigationVieew.NavigationItemSelected += (object sender, NavigationView.NavigationItemSelectedEventArgs e) =>
-              {
-                  e.MenuItem.SetChecked(true);
+            {
+                // if(e.MenuItem==)
+                var item = (e.MenuItem as IMenuItem);
+
+                switch (item.ItemId)
+                {
+                    case Resource.Id.nav_home:
+                        {
+                            SupportFragmentManager.Fragments.Clear();
+                            SetUpViewPager();
+                            tabs.SetupWithViewPager(viewPager);
+                            break;
+                        }
+                    case Resource.Id.nav_messages:
+                        {
+                            SupportFragmentManager.Fragments.Clear();
+                            adapter = new TabAdapter(SupportFragmentManager);
+                            adapter.AddFragment(new Fragment2(), "Фагмент2");
+                            viewPager.Adapter = adapter;
+                            tabs.SetupWithViewPager(viewPager);
+                            break;
+                        }
+                    case Resource.Id.nav_friends:
+                        {
+                            SupportFragmentManager.Fragments.Clear();
+                            adapter = new TabAdapter(SupportFragmentManager);
+                            adapter.AddFragment(new Fragment3(), "Фрагмент3");
+                            viewPager.Adapter = adapter;
+                            tabs.SetupWithViewPager(viewPager);
+                            break;
+                        }
+                }
+
+                e.MenuItem.SetChecked(true);
                   mDrawerLayout.CloseDrawers();
               };
           
@@ -104,6 +147,12 @@ namespace HendBook
             {
                 Fragments.Add(fragment);
                 FragmentNames.Add(name);
+            }
+          
+            public void Clear()
+            {
+                Fragments = new List<SupportFragment>();
+                FragmentNames = new List<string>();
             }
             public override int Count
             {
