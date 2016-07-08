@@ -27,8 +27,7 @@ namespace HendBook.Modules
                 Name = "BasicHttpBinding",
                 MaxReceivedMessageSize = 2147483647,
                 Security =new BasicHttpSecurity {Mode=BasicHttpSecurityMode.Transport },
-                 
-  
+               
                   
             };
            
