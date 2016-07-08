@@ -63,10 +63,11 @@ namespace HendBook
         private void SetUpViewPager()
         {
             adapter = new TabAdapter(SupportFragmentManager);
+            adapter.AddFragment(new EconomicalCalendar(), "Экономический Календарь");
             adapter.AddFragment(new Fragment1(), "Fragment 1");
-            adapter.AddFragment(new Fragment2(), "Fragment 2");
-           // adapter.AddFragment(new Fragment3(), "Fragment 3");
-          
+            //  adapter.AddFragment(new Fragment2(), "Fragment 2");
+            // adapter.AddFragment(new Fragment3(), "Fragment 3");
+
             viewPager.Adapter = adapter;
         }
 
@@ -117,11 +118,11 @@ namespace HendBook
                             tabs.SetupWithViewPager(viewPager);
                             break;
                         }
-                    case Resource.Id.nav_friends:
+                    case Resource.Id.economicalcalendar:
                         {
                             SupportFragmentManager.Fragments.Clear();
                             adapter = new TabAdapter(SupportFragmentManager);
-                            adapter.AddFragment(new Fragment3(), "Фрагмент3");
+                            adapter.AddFragment(new EconomicalCalendar(), "Экономический Календарь");
                             viewPager.Adapter = adapter;
                             tabs.SetupWithViewPager(viewPager);
                             break;

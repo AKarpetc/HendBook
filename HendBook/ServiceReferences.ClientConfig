@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_ICalendarService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ICalendarService1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="Transport" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://client-api.instaforex.com/soapservices/Calendar.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICalendarService"
+                contract="ICalendarService" name="BasicHttpBinding_ICalendarService" />
+            <endpoint address="https://client-api.instaforex.org/soapservices/Calendar.svc/secure"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICalendarService1"
+                contract="ICalendarService" name="BasicHttpBinding_ICalendarService1" />
+        </client>
+        <extensions />
+    </system.serviceModel>
+</configuration>
