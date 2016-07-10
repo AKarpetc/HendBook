@@ -13,6 +13,7 @@ using Android.Widget;
 using HendBook.Modules;
 using System.ServiceModel;
 using clientapi.instaforex.com.Calendar;
+using Android.Net;
 
 namespace HendBook.Fragments
 {
@@ -39,9 +40,24 @@ namespace HendBook.Fragments
         {
             View view = inflater.Inflate(Resource.Layout.EconomicalCalendar, container, false);
 
+            
+
+            GetEvents();
+
+
+            return view;
+        }
+
+        private void GetEvents()
+        {
+
+          
+            ConnectivityManager connectivityManager = (ConnectivityManager)Activity.GetSystemService(MainActivity.ConnectivityService);
+            NetworkInfo activeConnection = connectivityManager.ActiveNetworkInfo;
+            bool isOnline = (activeConnection != null) && activeConnection.IsConnected;
+
+
             BasicHttpBinding binding = CreateBasicHttp();
-
-
             
             try
             {
@@ -54,11 +70,7 @@ namespace HendBook.Fragments
             {
                 sc.Close();
             }
-
-
-            return view;
         }
-
         private void Sc_GetCalendarCompleted(object sender, GetCalendarCompletedEventArgs e)
         {
             var Events = e.Result.ToList();

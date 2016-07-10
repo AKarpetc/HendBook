@@ -18,6 +18,7 @@ using Android.Support.V4.App;
 using System.Collections.Generic;
 using Java.Lang;
 using HendBook.Fragments;
+using Android.Net;
 
 namespace HendBook
 {
@@ -95,6 +96,10 @@ namespace HendBook
         }
         private void SetUpDrawerContent(NavigationView navigationVieew)
         {
+            ConnectivityManager connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
+            NetworkInfo activeConnection = connectivityManager.ActiveNetworkInfo;
+            bool isOnline = (activeConnection != null) && activeConnection.IsConnected;
+
             navigationVieew.NavigationItemSelected += (object sender, NavigationView.NavigationItemSelectedEventArgs e) =>
             {
                 // if(e.MenuItem==)
