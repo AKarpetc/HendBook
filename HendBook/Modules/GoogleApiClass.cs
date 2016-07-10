@@ -40,27 +40,7 @@ namespace HendBook.Modules
         CalendarServiceClient sc;
         public void GetEvents()
         {
-            BasicHttpBinding binding = CreateBasicHttp();
-        
-                     
            
-            
-           // var test = sc.ClientCredentials.UserName.UserName= "UserName";
-            try
-            {
-                sc = new CalendarServiceClient(binding, EndPoint);
-                sc.GetCalendarCompleted += Sc_GetCalendarCompleted;
-                sc.GetCalendarAsync(Lang.Ru, new Account { Login = 1370181, Password = "78Kap11" });
-                
-                
-
-
-                // sc.Close();
-            }
-            catch (Exception ex)
-            {
-                sc.Close();
-            }
           
 
 

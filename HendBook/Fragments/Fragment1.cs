@@ -39,6 +39,7 @@ namespace HendBook.Fragments
         {
             var values = GetRandomSubList(Helpers.Cheeses.CheeseList,30);
             recyclerView.SetLayoutManager(new LinearLayoutManager(recyclerView.Context));
+
             recyclerView.SetAdapter(new SimpleStringRecyclerViewAdapter(recyclerView.Context, values, Activity.Resources));
 
         }
