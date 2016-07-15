@@ -134,10 +134,12 @@
     <Compile Include="Fragments\Fragment1.cs" />
     <Compile Include="Fragments\Fragment2.cs" />
     <Compile Include="Fragments\Fragment3.cs" />
+    <Compile Include="Helpers\CalendarEventsAdapter.cs" />
     <Compile Include="Helpers\Cheeses.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Model\EventsViewModel.cs" />
+    <Compile Include="Modules\EconomicalEvents.cs" />
     <Compile Include="Modules\FileDataStore.cs" />
-    <Compile Include="Modules\GoogleApiClass.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -180,7 +182,12 @@
     <AndroidResource Include="Resources\layout\EconomicalCalendar.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <None Include="ServiceReferences.ClientConfig" />
+    <AndroidResource Include="Resources\layout\EconomicalEventRow.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <None Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">

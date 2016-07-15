@@ -36,11 +36,12 @@ namespace HendBook.Fragments
         }
         public EndpointAddress EndPoint= new EndpointAddress("https://client-api.instaforex.org/soapservices/Calendar.svc/secure");
         CalendarServiceClient sc;
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.EconomicalCalendar, container, false);
 
-            
+          
 
             GetEvents();
 
@@ -73,9 +74,13 @@ namespace HendBook.Fragments
         }
         private void Sc_GetCalendarCompleted(object sender, GetCalendarCompletedEventArgs e)
         {
-            var Events = e.Result.ToList();
-
+            List<Event> Events = e.Result.ToList();
             sc.Close();
+            ILoadData ild = new EconomicalEvents();
+            ild.LoadEvents(Events);
+
+
+            
         }
     }
 }

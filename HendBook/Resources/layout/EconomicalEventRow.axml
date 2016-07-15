@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+    <LinearLayout
+        android:id="@+id/EventRow"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/eventCountry"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/Icon"
+            android:layout_alignParentRight="true" />
+        <TextView
+            android:id="@+id/eventName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5px"
+            android:text="Первый"
+            android:layout_gravity="bottom" />
+        <TextView
+            android:id="@+id/eventDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5px"
+            android:text="Второй"
+            android:layout_gravity="bottom" />
+        <ImageView
+            android:id="@+id/eventPosible"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/Icon"
+            android:layout_alignParentRight="true" />
+    </LinearLayout>
+</RelativeLayout>
