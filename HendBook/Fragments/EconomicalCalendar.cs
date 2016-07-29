@@ -14,6 +14,10 @@ using HendBook.Modules;
 using System.ServiceModel;
 using clientapi.instaforex.com.Calendar;
 using Android.Net;
+using HendBook.Helpers;
+using Android.Support.V7.Widget;
+using HendBook.Model;
+using static HendBook.Fragments.Fragment1;
 
 namespace HendBook.Fragments
 {
@@ -36,16 +40,13 @@ namespace HendBook.Fragments
         }
         public EndpointAddress EndPoint= new EndpointAddress("https://client-api.instaforex.org/soapservices/Calendar.svc/secure");
         CalendarServiceClient sc;
-
+       public RecyclerView view;
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.EconomicalCalendar, container, false);
-
-          
-
+            view = inflater.Inflate(Resource.Layout.Fragment1, container, false) as RecyclerView;
+            SetUpReciclerView(view);
             GetEvents();
-
-
+           
             return view;
         }
 
@@ -57,30 +58,67 @@ namespace HendBook.Fragments
             NetworkInfo activeConnection = connectivityManager.ActiveNetworkInfo;
             bool isOnline = (activeConnection != null) && activeConnection.IsConnected;
 
+            if (isOnline == false)
+            {
 
-            BasicHttpBinding binding = CreateBasicHttp();
-            
-            try
-            {
-                sc = new CalendarServiceClient(binding, EndPoint);
-                sc.GetCalendarCompleted += Sc_GetCalendarCompleted; ;
-                sc.GetCalendarAsync(Lang.Ru, new Account { Login = 1370181, Password = "78Kap11" });
-                                
             }
-            catch (Exception ex)
+            else
             {
-                sc.Close();
+
+                BasicHttpBinding binding = CreateBasicHttp();
+
+                try
+                {
+                    sc = new CalendarServiceClient(binding, EndPoint);
+                    sc.GetCalendarCompleted += Sc_GetCalendarCompleted; ;
+                    sc.GetCalendarAsync(Lang.Ru, new Account { Login = 1370181, Password = "78Kap11" });
+
+                }
+                catch (Exception ex)
+                {
+                    sc.Close();
+                }
             }
         }
         private void Sc_GetCalendarCompleted(object sender, GetCalendarCompletedEventArgs e)
         {
-            List<Event> Events = e.Result.ToList();
-            sc.Close();
             ILoadData ild = new EconomicalEvents();
-            ild.LoadEvents(Events);
+           var EventsList= ild.LoadEvents(e.Result.ToList());
+            using (var h = new Handler(Looper.MainLooper))
+            {
+                h.Post(() => 
+                {
+                    int start = ssa.ItemCount;
+                    ssa.addItems(EventsList);
+                    ssa.NotifyItemRangeInserted(start, ssa.ItemCount);
 
+                });
+            }
+        }
+        HomeScreenAdapter ssa;
+        private void SetUpReciclerView(RecyclerView recyclerView)
+        {
+            var values = new List<string> {};
+            recyclerView.SetLayoutManager(new LinearLayoutManager(recyclerView.Context));
+            ssa = new HomeScreenAdapter(recyclerView.Context, new List<EventsViewModel>(), Activity.Resources);
+            recyclerView.SetAdapter(ssa);
+        }
+        private List<string> GetRandomSubList(List<string> item, int amount)
+        {
 
-            
+            List<string> list = new List<string>();
+            Random random = new Random();
+            while (list.Count < amount)
+            {
+                list.Add(item[random.Next(item.Count)]);
+            }
+            return list;
+        }
+        private void SetEvebtsView(RecyclerView recyclerView,List<EventsViewModel> values)
+        {
+
+          //  recyclerView.SetAdapter(new HomeScreenAdapter(recyclerView.Context, values, Activity.Resources));
+
         }
     }
 }

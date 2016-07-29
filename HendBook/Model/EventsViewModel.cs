@@ -18,8 +18,9 @@ namespace HendBook.Model
         public string ShortText { get; set; }
         public string Text { get; set; }
         public DateTime Date { get; set; }
-        public DateTime Date1 { get; set; }
+
         public string Country { get; set; }
+        public string Actual { get; set; }
         public clientapi.instaforex.com.Calendar.Importance Posible { get; set; }
     }
 }

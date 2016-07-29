@@ -11,42 +11,102 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.Design.Widget;
 using HendBook.Model;
+using Android.Support.V7.Widget;
+using Android.Content.Res;
+using Android.Util;
+using Android.Graphics;
 
 namespace HendBook.Helpers
 {
-    public class HomeScreenAdapter : BaseAdapter<EventsViewModel>
+    public class HomeScreenAdapter : RecyclerView.Adapter
     {
-        List<EventsViewModel> items;
-        Activity context;
-        public HomeScreenAdapter(Activity context, List<EventsViewModel> items)
-            : base()
+        private readonly TypedValue mTypedValue = new TypedValue();
+        private int mBackground;
+        private List<EventsViewModel> mValues;
+        Resources mResource;
+        private Dictionary<int, int> mCalculatedSizes;
+
+
+        public HomeScreenAdapter(Context context, List<EventsViewModel> items, Resources res)
         {
-            this.context = context;
-            this.items = items;
+            context.Theme.ResolveAttribute(Resource.Attribute.selectableItemBackground, mTypedValue, true);
+            mBackground = mTypedValue.ResourceId;
+            mValues = items;
+            mResource = res;
+
+            mCalculatedSizes = new Dictionary<int, int>();
         }
-        public override long GetItemId(int position)
+
+        public void addItem(EventsViewModel value)
         {
-            return position;
+            mValues.Add(value);
+
         }
-        public override EventsViewModel this[int position]
+        public void addItems(List<EventsViewModel> values)
         {
-            get { return items[position]; }
+            mValues.AddRange(values);
+
         }
-        public override int Count
+        public override int ItemCount
         {
-            get { return items.Count; }
+            get
+            {
+                return mValues.Count;
+            }
         }
-        public override View GetView(int position, View convertView, ViewGroup parent)
+
+        public override async void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            var item = items[position];
-            View view = convertView;
-            if (view == null) // no view to re-use, create new
-                view = context.LayoutInflater.Inflate(Resource.Layout.EconomicalEventRow, null);
-            view.FindViewById<TextView>(Resource.Id.eventName).Text = item.ShortText;
-            view.FindViewById<TextView>(Resource.Id.eventDate).Text = item.Date.ToShortTimeString();
-           // view.FindViewById<ImageView>(Resource.Id.Image).SetImageResource(item.ImageResourceId);
-            return view;
+            var simpleHolder = holder as SimpleViewHolder;
+
+            simpleHolder.mBoundString = mValues[position].Text;
+            simpleHolder.mTxtView.Text = mValues[position].ShortText;
+            simpleHolder.mTxtView2.Text = mValues[position].Actual.ToString() + "%";
+          
+
+            int drawableID = CountryNamesConvert.ConvertCountry(mValues[position].Country);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            var bitMap = await BitmapFactory.DecodeResourceAsync(mResource, drawableID, options);
+            simpleHolder.mImageViewS.SetImageBitmap(bitMap);
+
+            int importentID = Resource.Drawable.Icon;
+            options = new BitmapFactory.Options();
+           bitMap = await BitmapFactory.DecodeResourceAsync(mResource, importentID, options);
+            simpleHolder.Imponent.SetImageBitmap(bitMap);
+
+        }
+
+        public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
+        {
+            View view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.EconomicalEventRow, parent, false);
+            view.SetBackgroundResource(mBackground);
+
+            return new SimpleViewHolder(view);
         }
     }
-  
+
+    public class SimpleViewHolder : RecyclerView.ViewHolder
+    {
+        public string mBoundString;
+        public readonly View mView;
+        public readonly ImageView mImageView;
+        public readonly ImageView mImageViewS;
+        public readonly TextView mTxtView;
+        public readonly TextView mTxtView2;
+        public readonly ImageView Imponent;
+        public SimpleViewHolder(View view) : base(view)
+        {
+            mView = view;
+            mImageView = view.FindViewById<ImageView>(Resource.Id.avatar);
+            mImageViewS = view.FindViewById<ImageView>(Resource.Id.avatarSquer);
+            mTxtView = view.FindViewById<TextView>(Resource.Id.text2);
+            mTxtView2= view.FindViewById<TextView>(Resource.Id.text1);
+            Imponent= view.FindViewById<ImageView>(Resource.Id.Importent);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + " '" + mTxtView.Text;
+        }
+    }
 }

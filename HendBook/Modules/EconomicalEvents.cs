@@ -10,16 +10,17 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using HendBook.Model;
+using Newtonsoft.Json;
 
 namespace HendBook.Modules
 {
-    public interface ILoadData
+    public  interface ILoadData
     {
          List<EventsViewModel> LoadEvents(List<clientapi.instaforex.com.Calendar.Event> events);
 
     }
   
-    class EconomicalEvents: ILoadData
+    class  EconomicalEvents: ILoadData
     {
         private static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
         {
@@ -38,10 +39,12 @@ namespace HendBook.Modules
         public List<EventsViewModel> LoadEvents(List<clientapi.instaforex.com.Calendar.Event> events)
         {
 
-            var Events = events.Select(x => new EventsViewModel { ShortText = x.Name,
-                Date = UnixTimeStampToDateTime(x.ReleaseTimestamp),Text=x.Description, Country=x.Country, Posible=x.Importance
+            var Events = events.Select(x => new EventsViewModel { Id=x.Id,  ShortText = x.Name,
+                Date = UnixTimeStampToDateTime(x.ReleaseTimestamp),Text=x.Description, Country=x.Country, Posible=x.Importance, Actual=x.Actual
 
             }).ToList();
+
+       
             return Events;
         }
 

@@ -23,15 +23,15 @@ namespace HendBook.Helpers
                 switch (RANDOM.Next(5))
                 {
                     default:
-                    case 0: return Resource.Drawable.cheese_1;
+                    case 0: return Resource.Drawable.Icon;
 
-                    case 1: return Resource.Drawable.cheese_2;
+                    case 1: return Resource.Drawable.Icon;
 
-                    case 2: return Resource.Drawable.cheese_3;
+                    case 2: return Resource.Drawable.Icon;
 
-                    case 3: return Resource.Drawable.cheese_4;
+                    case 3: return Resource.Drawable.Icon;
 
-                    case 4: return Resource.Drawable.cheese_5;
+                    case 4: return Resource.Drawable.Icon;
                 }
             }
         }

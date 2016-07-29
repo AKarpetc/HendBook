@@ -136,6 +136,7 @@
     <Compile Include="Fragments\Fragment3.cs" />
     <Compile Include="Helpers\CalendarEventsAdapter.cs" />
     <Compile Include="Helpers\Cheeses.cs" />
+    <Compile Include="Helpers\CountryNamesConvert.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Model\EventsViewModel.cs" />
     <Compile Include="Modules\EconomicalEvents.cs" />
@@ -297,24 +298,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\cheese_1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\cheese_2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\cheese_3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\cheese_4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\cheese_5.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\mapMockup.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\values\Dimens.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -325,6 +308,13 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values-v21\Styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\England.png" />
+    <AndroidResource Include="Resources\drawable\Japan.png" />
+    <AndroidResource Include="Resources\drawable\USA.png" />
+    <AndroidResource Include="Resources\drawable\China.png" />
+    <AndroidResource Include="Resources\drawable\Canada.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

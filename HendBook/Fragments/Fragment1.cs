@@ -62,6 +62,7 @@ namespace HendBook.Fragments
             Resources mResource;
             private Dictionary<int, int> mCalculatedSizes;
 
+            
             public SimpleStringRecyclerViewAdapter(Context context, List<string> items, Resources res)
             {
                 context.Theme.ResolveAttribute(Resource.Attribute.selectableItemBackground, mTypedValue, true);
@@ -72,6 +73,16 @@ namespace HendBook.Fragments
                 mCalculatedSizes = new Dictionary<int, int>();
             }
 
+            public void addItem(string value)
+            {
+                mValues.Add(value);
+
+            }
+            public void addItems(List<string> values)
+            {
+                mValues.AddRange(values);
+
+            }
             public override int ItemCount
             {
                 get

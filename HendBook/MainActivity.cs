@@ -28,10 +28,11 @@ namespace HendBook
         private DrawerLayout mDrawerLayout;
         ViewPager viewPager;
         TabLayout tabs;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
+           
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             SupportToolBar toolBar = FindViewById<SupportToolBar>(Resource.Id.toolBar);

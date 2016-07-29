@@ -1,38 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"      
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
-    <LinearLayout
-        android:id="@+id/EventRow"
-        android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:gravity="center_vertical">
+  <ImageView
+     android:id="@+id/avatarSquer"
+      android:layout_width="@dimen/list_item_avatar_size"
+      android:layout_height="@dimen/list_item_avatar_size"
+      android:layout_marginRight="16dp"
+
+    />
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        android:id="@+id/text2"
+        android:text="txt"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem" />
+     <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+    >
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem" />
         <ImageView
-            android:id="@+id/eventCountry"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/Icon"
-            android:layout_alignParentRight="true" />
-        <TextView
-            android:id="@+id/eventName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5px"
-            android:text="Первый"
-            android:layout_gravity="bottom" />
-        <TextView
-            android:id="@+id/eventDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5px"
-            android:text="Второй"
-            android:layout_gravity="bottom" />
-        <ImageView
-            android:id="@+id/eventPosible"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/Icon"
-            android:layout_alignParentRight="true" />
-    </LinearLayout>
-</RelativeLayout>
+    android:id="@+id/Importent"
+      android:layout_width="@dimen/list_item_avatar_size"
+      android:layout_height="@dimen/list_item_avatar_size"
+      android:layout_marginRight="5dp"
+
+    />
+       </LinearLayout>
+  </LinearLayout>
+</LinearLayout>
