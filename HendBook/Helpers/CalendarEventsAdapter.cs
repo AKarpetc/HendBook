@@ -57,22 +57,24 @@ namespace HendBook.Helpers
 
         public override async void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            var simpleHolder = holder as SimpleViewHolder;
 
-            simpleHolder.mBoundString = mValues[position].Text;
-            simpleHolder.mTxtView.Text = mValues[position].ShortText;
-            simpleHolder.mTxtView2.Text = mValues[position].Actual.ToString() + "%";
-          
 
-            int drawableID = CountryNamesConvert.ConvertCountry(mValues[position].Country);
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            var bitMap = await BitmapFactory.DecodeResourceAsync(mResource, drawableID, options);
-            simpleHolder.mImageViewS.SetImageBitmap(bitMap);
+                var simpleHolder = holder as SimpleViewHolder;
+                simpleHolder.mBoundString = mValues[position].Text;
+                simpleHolder.mTxtView.Text = mValues[position].Date.ToString("HH:MM") + "." + mValues[position].ShortText;
+                simpleHolder.mTxtView2.Text = mValues[position].Actual.ToString();
 
-            int importentID = Resource.Drawable.Icon;
-            options = new BitmapFactory.Options();
-           bitMap = await BitmapFactory.DecodeResourceAsync(mResource, importentID, options);
-            simpleHolder.Imponent.SetImageBitmap(bitMap);
+
+                int drawableID = AllConverter.ConvertCountry(mValues[position].Country);
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                var bitMap = await BitmapFactory.DecodeResourceAsync(mResource, drawableID, options);
+                simpleHolder.mImageViewS.SetImageBitmap(bitMap);
+
+                int importentID = AllConverter.ConvertForce(mValues[position].Posible);
+                options = new BitmapFactory.Options();
+                bitMap = await BitmapFactory.DecodeResourceAsync(mResource, importentID, options);
+                simpleHolder.Imponent.SetImageBitmap(bitMap);
+            
 
         }
 
@@ -94,6 +96,8 @@ namespace HendBook.Helpers
         public readonly TextView mTxtView;
         public readonly TextView mTxtView2;
         public readonly ImageView Imponent;
+        public readonly TextView DateText;
+
         public SimpleViewHolder(View view) : base(view)
         {
             mView = view;
@@ -102,6 +106,7 @@ namespace HendBook.Helpers
             mTxtView = view.FindViewById<TextView>(Resource.Id.text2);
             mTxtView2= view.FindViewById<TextView>(Resource.Id.text1);
             Imponent= view.FindViewById<ImageView>(Resource.Id.Importent);
+            DateText = view.FindViewById<TextView>(Resource.Id.DateText);
         }
 
         public override string ToString()

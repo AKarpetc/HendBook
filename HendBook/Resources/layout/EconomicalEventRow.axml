@@ -9,41 +9,45 @@
     android:paddingTop="8dp"
     android:paddingBottom="8dp"
     android:gravity="center_vertical">
+    <TextView
+      android:id="@+id/DateText"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+     />
   <ImageView
      android:id="@+id/avatarSquer"
       android:layout_width="@dimen/list_item_avatar_size"
       android:layout_height="@dimen/list_item_avatar_size"
-      android:layout_marginRight="16dp"
-
-    />
-
+      android:layout_marginRight="16dp"    />
 
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical">
+          
     <TextView
         android:id="@+id/text2"
         android:text="txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?attr/textAppearanceListItem" />
-     <LinearLayout
+    <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-    >
+      android:orientation="horizontal">
+       <ImageView
+    android:id="@+id/Importent"
+      android:layout_width="35dp"
+      android:layout_height="25dp"
+    android:layout_gravity="left"
+         />
     <TextView
         android:id="@+id/text1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?attr/textAppearanceListItem" />
-        <ImageView
-    android:id="@+id/Importent"
-      android:layout_width="@dimen/list_item_avatar_size"
-      android:layout_height="@dimen/list_item_avatar_size"
-      android:layout_marginRight="5dp"
-
-    />
-       </LinearLayout>
+    
+   </LinearLayout>
+      
   </LinearLayout>
 </LinearLayout>

@@ -42,9 +42,8 @@ namespace HendBook.Modules
             var Events = events.Select(x => new EventsViewModel { Id=x.Id,  ShortText = x.Name,
                 Date = UnixTimeStampToDateTime(x.ReleaseTimestamp),Text=x.Description, Country=x.Country, Posible=x.Importance, Actual=x.Actual
 
-            }).ToList();
-
-       
+            }).OrderBy(x=>x.Date).ToList();
+                  
             return Events;
         }
 

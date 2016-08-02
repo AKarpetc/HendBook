@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace HendBook.Helpers
 {
-   static class CountryNamesConvert
+   static class AllConverter
     {
         public static int ConvertCountry(string Name)
         {
@@ -29,6 +29,22 @@ namespace HendBook.Helpers
 
             return country;
         }
+        public static int ConvertForce(clientapi.instaforex.com.Calendar.Importance imp)
+        {
+            int country = 0;
 
+            switch (imp)
+            {
+                case clientapi.instaforex.com.Calendar.Importance.High: country = Resource.Drawable.force3; break;
+                case clientapi.instaforex.com.Calendar.Importance.Medium: country = Resource.Drawable.force2; break;
+                case clientapi.instaforex.com.Calendar.Importance.Low: country = Resource.Drawable.force1; break;
+             
+
+            }
+
+            return country;
+            
+        }
     }
+
 }

@@ -136,7 +136,7 @@
     <Compile Include="Fragments\Fragment3.cs" />
     <Compile Include="Helpers\CalendarEventsAdapter.cs" />
     <Compile Include="Helpers\Cheeses.cs" />
-    <Compile Include="Helpers\CountryNamesConvert.cs" />
+    <Compile Include="Helpers\AllConverter.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Model\EventsViewModel.cs" />
     <Compile Include="Modules\EconomicalEvents.cs" />
@@ -315,6 +315,15 @@
     <AndroidResource Include="Resources\drawable\USA.png" />
     <AndroidResource Include="Resources\drawable\China.png" />
     <AndroidResource Include="Resources\drawable\Canada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\force3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\force2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\force1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

@@ -14,6 +14,7 @@ namespace HendBook.Model
 {
    public class EventsViewModel
     {
+        public int stringDate { get; set; }
         public int Id { get; set; }
         public string ShortText { get; set; }
         public string Text { get; set; }
