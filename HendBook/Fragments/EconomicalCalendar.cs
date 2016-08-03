@@ -43,10 +43,15 @@ namespace HendBook.Fragments
        public RecyclerView view;
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            view = inflater.Inflate(Resource.Layout.Fragment1, container, false) as RecyclerView;
+            view = inflater.Inflate(Resource.Layout.EconomicalCalendar, container, false) as RecyclerView;
             SetUpReciclerView(view);
+            
             GetEvents();
-           
+            //  TextView meesageEventList = View.FindViewById<TextView>(Resource.Id.MessageEventList);
+
+            //  meesageEventList.Text = "Нет соединения с интернетом";
+
+            
             return view;
         }
 
@@ -57,9 +62,12 @@ namespace HendBook.Fragments
             ConnectivityManager connectivityManager = (ConnectivityManager)Activity.GetSystemService(MainActivity.ConnectivityService);
             NetworkInfo activeConnection = connectivityManager.ActiveNetworkInfo;
             bool isOnline = (activeConnection != null) && activeConnection.IsConnected;
-
+          
             if (isOnline == false)
             {
+
+                TextView meesageEventList = Activity.FindViewById<TextView>(Resource.Id.MessageText);
+                meesageEventList.Text = "Нет соединения с интернетом";
 
             }
             else

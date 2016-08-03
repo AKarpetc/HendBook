@@ -74,7 +74,6 @@ namespace HendBook.Helpers
                 options = new BitmapFactory.Options();
                 bitMap = await BitmapFactory.DecodeResourceAsync(mResource, importentID, options);
                 simpleHolder.Imponent.SetImageBitmap(bitMap);
-            
 
         }
 
